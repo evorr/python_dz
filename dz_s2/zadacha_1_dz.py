@@ -3,7 +3,7 @@
 
 
 dev = 16
-dict_hex = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
+dict_hex = '0123456789abcdef'
 
 numer = int(input('Число: '))
 
