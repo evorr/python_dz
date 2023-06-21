@@ -6,7 +6,7 @@
 def func(some_dict):
     for name in some_dict:
         some_dict[name] = sum(some_dict[name])
-    print(all([x > 0 for x in some_dict.values()]))
+    print(all(x > 0 for x in some_dict.values()))
 
 
 dict_companies = {'asus': [33, -5, 0, 1000, -56],
