@@ -5,7 +5,7 @@
 def fib_gen(n):
     x = 0
     y = 1
-    for i in range(0, n):
+    for _ in range(n):
         yield x
         x, y = y, x + y
 
