@@ -9,6 +9,6 @@ list_names = ["ivan", "petr", "yra"]
 list_salary = [30_000, 25_000, 28_000]
 list_award = ["10.25%", "11.25%", "10.05%"]
 
-dict_award = {name: salary * (float(award.rstrip('%')) / 100)
+dict_award = {name: salary * float(award.rstrip('%')) / 100
               for name, salary, award in zip(list_names, list_salary, list_award)}
 print(dict_award)
