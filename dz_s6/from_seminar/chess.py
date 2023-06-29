@@ -9,40 +9,19 @@
 # Если ферзи не бьют друг друга верните истину, а если бьют - ложь.
 __all__ = ['func']
 
+
 def func(coord_tuple):
-    for i in range(len(coord_tuple) - 1):
-        x, y = coord_tuple[i]
-        set_diagonal = set()
-        while x <= 8 and y <= 8:
-            set_diagonal.add((x, y))
-            x += 1
-            y += 1
-        x, y = coord_tuple[i]
-        while x >= 1 and y >= 1:
-            set_diagonal.add((x, y))
-            x -= 1
-            y -= 1
-        x, y = coord_tuple[i]
-        while x >= 1 and y <= 8:
-            set_diagonal.add((x, y))
-            x -= 1
-            y += 1
-        x, y = coord_tuple[i]
-        while x <= 8 and y >= 1:
-            set_diagonal.add((x, y))
-            x += 1
-            y -= 1
-        for s_i in range(i + 1, len(coord_tuple)):
-            if coord_tuple[i][0] == coord_tuple[s_i][0] or coord_tuple[i][1] == coord_tuple[s_i][1]:
-                print(f'{coord_tuple[i]} and {coord_tuple[s_i]} in straight line')
-                return False
-            if coord_tuple[s_i] in set_diagonal:
-                print(f'{coord_tuple[i]} and {coord_tuple[s_i]} in diagonal line')
+    for item in coord_tuple:
+        for next_item in coord_tuple[coord_tuple.index(item) + 1:]:
+            if item[0] == next_item[0] \
+                    or item[1] == next_item[1] \
+                    or abs(item[0] - next_item[0]) == abs(item[1] - next_item[1]):
+                print(f'{item} and {next_item} in line')
                 return False
     return True
 
 
 if __name__ == '__main__':
-    coordinates = ((3, 5), (4, 4), (7, 4), (6, 1), (8, 7), (1, 6), (2, 2), (5, 3))
+    coordinates = ((7, 1), (5, 2), (3, 3), (1, 4), (6, 5), (8, 6), (2, 7), (4, 8))
     result = func(coordinates)
     print(result)
