@@ -47,7 +47,7 @@ def quadratic_equation(a, b, c):
         x_2 = (-b + discriminant ** 0.5) / (2 * a)
         return x_1, x_2
     elif discriminant == 0:
-        x = -(b / (2 * a))
+        x = -b / (2 * a)
         return x
     else:
         return 'no roots'
