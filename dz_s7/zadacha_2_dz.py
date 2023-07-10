@@ -12,14 +12,14 @@ from pathlib import Path
 __all__ = ['rename_file', ]
 
 
-def rename_file(new_names, old_ext=None, new_ext=None, dir=None):
+def rename_file(new_names, old_ext=None, new_ext=None, dir=os.getcwd()):
     os.chdir(Path.cwd() / dir)
     count = 1
     for file in os.listdir():
-        if file[-3:] == old_ext and file[:-3] not in new_names:
-            Path(file).rename(file[:-4] + '_' + choice(new_names) + '_' + str(count) + '.' + new_ext)
+        if file[-(len(old_ext)):] == old_ext and file[:-(len(old_ext))] not in new_names:
+            Path(file).rename(file[:-(len(old_ext) + 1)] + '_' + choice(new_names) + '_' + str(count) + '.' + new_ext)
             count += 1
 
 
 if __name__ == '__main__':
-    rename_file(['AA', 'BB', 'CC'], old_ext='txt', new_ext='csv', dir='test')
+    rename_file(['AA', 'BB', 'CC'], old_ext='md', new_ext='csv')
