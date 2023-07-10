@@ -33,8 +33,7 @@ def deco_quadr_eq_from_csv(func):
         with open('numbers.csv', 'r', newline='', encoding='utf-8') as file:
             numbers = csv.reader(file)
             for line in numbers:
-                result = func(*(map(int, line)))
-        return result
+                func(*(map(int, line)))
 
     return wrapper
 
