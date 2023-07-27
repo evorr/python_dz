@@ -13,45 +13,17 @@
 # Убедитесь, что свойство возраст недоступно для прямого
 # изменения, но есть возможность получить текущий возраст.
 
-
-class BaseException(Exception):
-    pass
-
-
-class NameException(BaseException):
-    def __init__(self, name):
-        self.name = name
-
-    def __str__(self):
-        return f'{self.name} содержит цифры или символы'
-
-
-class AgeException(BaseException):
-    def __init__(self, age):
-        self.age = age
-
-    def __str__(self):
-        message = ''
-        if self.age < 0:
-            message = 'не может быть меньше 0'
-        elif not type(self.age) is int:
-            message = 'должен быть целым числом'
-        return f'Возраст {message}. Вы ввели {self.age}'
+from ex_2_excep import AgeException, NameException
 
 
 class Human:
     def __init__(self, surname, name, patronym, age):
-        try:
-            if not isinstance(age, int) or age < 0:
-                raise AgeException(age)
-        except AgeException as e:
-            print(e)
-            self.__age = 0
-        else:
-            self.__age = age
+        if not isinstance(age, int) or age < 0:
+            raise AgeException(age)
         for elem in [surname, name, patronym]:
             if not elem.isalpha():
                 raise NameException(elem)
+        self.__age = age
         self.surname = surname
         self.name = name
         self.patronym = patronym
