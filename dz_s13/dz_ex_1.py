@@ -10,13 +10,7 @@
 # При создании нового экземпляра класса, старые данные из ранее
 # созданных экземпляров сохраняются в пару списков архивов
 # list-архивы также являются свойствами экземпляра
-
-class IsDigitException(Exception):
-    def __init__(self, value):
-        self.value = value
-
-    def __str__(self):
-        return f'{self.value} не является int или float'
+from ex_1_excep import IsDigitException
 
 
 class Archive:
