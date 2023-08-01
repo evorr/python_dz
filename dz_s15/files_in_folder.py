@@ -48,3 +48,4 @@ launching in terminsl:
 python .\files_in_folder.py -path C:\Users\Лена\Desktop\Python_les\python_dz
 python .\files_in_folder.py
 """
+
